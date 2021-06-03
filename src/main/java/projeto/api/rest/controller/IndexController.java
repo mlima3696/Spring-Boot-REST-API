@@ -22,6 +22,17 @@ public class IndexController {
 	@Autowired // Se fosse CDI seria @Inject
 	private UsuarioRepository usuarioRepository;
 	
+	/*Serviço RESTful*/
+	@GetMapping(value="/{id}/codigovenda/{venda}", produces="application/pdf")
+	public ResponseEntity <Usuario>relatorio(@PathVariable(value="id") Long id,
+			                                 @PathVariable(value="venda")Long Venda) {
+		
+		Optional<Usuario> usuario = usuarioRepository.findById(id);
+		
+		//O retorno seria um relatorio
+		return new  ResponseEntity<Usuario>(usuario.get(), HttpStatus.OK);
+	}
+	
 /*Serviço RESTful*/
 	@GetMapping(value="/{id}", produces="application/json")
 	public ResponseEntity <Usuario>init(@PathVariable(value="id") Long id) {
