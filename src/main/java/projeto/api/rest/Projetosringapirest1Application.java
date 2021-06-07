@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableTransactionManagement// Gerencia de transação
 @EnableWebMvc
 @RestController
-@EnableAutoConfiguration // Configugar todo o projeto
+@EnableAutoConfiguration // Configurar todo o projeto
 public class Projetosringapirest1Application {
 
 	public static void main(String[] args) {
