@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Telefone {
 
@@ -14,6 +16,9 @@ public class Telefone {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	private String numero;
+
+	@JsonIgnore
 	@org.hibernate.annotations.ForeignKey(name="usuario_id")
 	@ManyToOne// Muitos para um
 	private Usuario usuario;
@@ -24,6 +29,14 @@ public class Telefone {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
 	public Usuario getUsuario() {
