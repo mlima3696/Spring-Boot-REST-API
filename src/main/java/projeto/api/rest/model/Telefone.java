@@ -20,7 +20,7 @@ public class Telefone {
 
 	@JsonIgnore
 	@org.hibernate.annotations.ForeignKey(name="usuario_id")
-	@ManyToOne// Muitos para um
+	@ManyToOne(optional = false)// Muitos para um - Not Null
 	private Usuario usuario;
 
 	public Long getId() {
